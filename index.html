@@ -145,14 +145,75 @@
                                 </div>
                                 <h5 class="card-title mb-0">GCP DNI Extract</h5>
                                 <p class="card-text">GCP's Document AI service was used.</p>
-                                <a class="btn btn-primary" href="#" role="button">Probar</a>
+                                <a href="#" data-bs-target="#M8" data-bs-toggle="modal" class="btn btn-primary">Probar</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-          </section>
+        </section>
         <!-- /Modelos -->
+
+
+
+        <!-- Vertically centered modal -->
+        <div class="modal fade" id="M8" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">GCP DNI Extract</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="inputGroupFile01"></label>
+                                    <input type="file" class="form-control" id="inputGroupFile01">
+                                </div>
+                                
+                                <form>
+                                    <div class="container">
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Numero</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                              </div>
+                                              <div class="mb-3">
+                                                  <label for="exampleInputEmail1" class="form-label">Apellido</label>
+                                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="bt1" type="button" class="btn btn-primary" onclick="Modelo1()">Test</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Vertically centered modal -->
+
+
+
+
+        
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
