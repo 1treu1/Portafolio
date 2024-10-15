@@ -16,13 +16,20 @@ def display_gcp_dni_extract():
 
         **Librerías Utilizadas**: `requests`, `pandas`.
 
-        [Probar](https://github.com/1treu1/GCP-DNI-Extract)
+        [Probar API](https://github.com/1treu1/GCP-DNI-Extract)
     """)
 
     # Cargar un archivo de imagen o PDF
     uploaded_file = st.file_uploader("Sube tu imagen o PDF del DNI:", type=["jpg", "jpeg", "png", "pdf"])
 
     if uploaded_file is not None:
+        # Crear dos columnas
+        col1, col2 = st.columns(2)
+
+        # Mostrar la imagen en la columna izquierda
+        with col1:
+            st.image(uploaded_file, caption="Imagen Cargada", use_column_width=True)
+
         # Realizar la llamada a la API
         url = "https://rock-dragon-403212.ue.r.appspot.com/files/"
         files = {"file": uploaded_file}
@@ -32,14 +39,15 @@ def display_gcp_dni_extract():
             response.raise_for_status()  # Verifica si la solicitud fue exitosa
             result = response.json()
 
-            # Mostrar el resultado del OCR en una tabla
-            if isinstance(result, dict):
-                df = pd.DataFrame([result['document_result']])
-                st.write("### Resultados del OCR en Tabla:")
-                st.table(df)
-            else:
-                st.write("Formato de respuesta inesperado")
-                st.json(result)
+            # Mostrar el resultado del OCR en una tabla en la columna derecha
+            with col2:
+                if isinstance(result, dict):
+                    df = pd.DataFrame.from_dict(result['document_result'], orient='index', columns=['Values'])
+                    st.write("### Resultados del OCR en Tabla:")
+                    st.table(df)
+                else:
+                    st.write("Formato de respuesta inesperado")
+                    st.json(result)
 
         except requests.exceptions.RequestException as e:
             st.error(f"Error en la solicitud a la API: {e}")

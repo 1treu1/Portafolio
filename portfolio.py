@@ -59,7 +59,7 @@ display_header()
 with st.sidebar:
     section = option_menu(
         "Navegación",
-        ["Acerca de mí", "Proyectos", "Contacto"],
+        ["Proyectos", "Acerca de mí", "Contacto"],
         icons=["house", "bar-chart", "envelope"],
         menu_icon="cast",
         default_index=0,
